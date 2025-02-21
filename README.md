@@ -1,4 +1,44 @@
 # Monitor-Node
+
+## 项目结构
+
+```
+monitor-node/
+├── .env                     // 环境变量配置
+├── .eslintrc.js             // ESLint 配置文件
+├── .gitignore               // Git 忽略文件配置
+├── .prettierrc              // Prettier 格式化配置
+├── API.md                   // API 文档
+├── package-lock.json        // NPM 依赖锁定文件
+├── package.json             // 项目依赖和脚本配置
+├── pnpm-lock.yaml           // PNPM 依赖锁定文件
+├── src/                     // 源代码目录
+│   ├── config/              // 配置相关
+│   │   ├── commoninfo.js    // 通用信息配置
+│   │   └── influx.js        // InfluxDB 连接配置
+│   ├── controllers/         // 控制器层
+│   │   ├── durationController.js    // 页面停留时间控制器
+│   │   ├── perfController.js        // 性能监控控制器
+│   │   ├── pvuvController.js        // PV/UV 统计控制器
+│   │   └── whiteScreenController.js // 白屏检测控制器
+│   ├── middlewares/         // 中间件
+│   │   └── context.js       // 上下文处理中间件
+│   ├── routes/              // 路由配置
+│   │   ├── duration.js      // 页面停留时间路由
+│   │   ├── index.js         // 主路由入口
+│   │   ├── performance.js   // 性能监控路由
+│   │   ├── pvuv.js          // PV/UV 统计路由
+│   │   └── whiteScreen.js   // 白屏检测路由
+│   ├── services/            // 服务层
+│   │   └── influxService.js // InfluxDB 服务封装
+│   ├── utils/               // 工具函数
+│   │   ├── durationTransform.js    // 页面停留时间数据转换
+│   │   ├── perfTransform.js        // 性能数据转换
+│   │   ├── pvuvTransform.js        // PV/UV 数据转换
+│   │   └── whiteScreenTransform.js // 白屏检测数据转换
+│   └── index.js             // 项目入口文件
+```
+
 **1.Influx数据库介绍：**
 (1)**高性能读写:**
 - **数据写入快：**InfluxDB 针对时间序列数据的写入做了优化，采用了高效的写入引擎。它能够快速处理大量的时间戳数据，每秒可以处理成千上万甚至更多的数据点写入。
